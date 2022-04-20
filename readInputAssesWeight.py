@@ -71,6 +71,7 @@ else:
     AssesName = numpy.append(AssesName,AssesWeight2['Değerlendirme Adı.2'])
     AssesName = numpy.append(AssesName,AssesWeight3['Değerlendirme Adı.3'])
 
+    
     AssesName=AssesName[AssesWeight!=0]
     AssesWeight=AssesWeight[AssesWeight!=0]
     

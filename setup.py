@@ -40,17 +40,17 @@ finally:
                Semester    TEXT                 NOT NULL);")
                   
     cursor.execute("CREATE TABLE Student\
-              (StuNo       INT PRIMARY KEY                                              NOT NULL,\
-               FirstName   TEXT                                                         NOT NULL,\
-               LastName    TEXT                                                         NOT NULL,\
+              (StuID       SERIAL PRIMARY KEY                                           NOT NULL,\
+               StuNo       INT                                                          NOT NULL,\
+               Name        TEXT                                                         NOT NULL,\
                CourseID    INT REFERENCES Course(CourseID)                              NOT NULL,\
-               CourseTaken TEXT                                                         NOT NULL,\
+               CourseTag   TEXT                                                         NOT NULL,\
                Year1       INT                                                          NOT NULL,\
                Year2       INT                                                          NOT NULL,\
                Semester    TEXT                                                         NOT NULL);")
                   
     cursor.execute("CREATE TABLE AssesWeight\
-              (AssesWeightID SERIAL PRIMARY KEY                   NOT NULL,\
+              (AssesWeightID SERIAL PRIMARY KEY                  NOT NULL,\
                CourseID    INT REFERENCES Course(CourseID)       NOT NULL,\
                CourseTag   TEXT                                  NOT NULL,\
                Year1       INT                                   NOT NULL,\
@@ -68,8 +68,7 @@ finally:
                Semester    TEXT                                  NOT NULL,\
                AssesType   TEXT                                  NOT NULL,\
                QuestNo     INT                                   NOT NULL,\
-               QuestWeight INT                                   NOT NULL,\
-               QuestOC     INT                                   NOT NULL);")
+               QuestWeight INT                                   NOT NULL);")
                   
     cursor.execute("CREATE TABLE COPO\
               (CourseID    INT REFERENCES Course(CourseID)       NOT NULL,\
@@ -84,7 +83,7 @@ finally:
     cursor.execute("CREATE TABLE Grade\
               (GradeID       SERIAL PRIMARY KEY                        NOT NULL,\
                CourseID      INT REFERENCES Course(CourseID)           NOT NULL,\
-               StuNo         INT REFERENCES Student(StuNo)             NOT NULL,\
+               StuNo         INT                                       NOT NULL,\
                QuestWeightID INT REFERENCES QuestWeight(QuestWeightID) NOT NULL,\
                Grade         INT                                       NOT NULL);")
     
