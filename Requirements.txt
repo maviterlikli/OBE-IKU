@@ -1,0 +1,7 @@
+image: postgresql
+
+image:
+python
+psycopg2
+pandas
+numpy
